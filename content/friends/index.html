@@ -1,0 +1,180 @@
+---
+
+title: 友情链接
+date: 2021-08-24 17:51:42
+---
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冲浪时间</title>
+  <style>
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+#top-header {
+  width: 100%;
+  background-color: #f6f6f6;
+  border-bottom: .5em solid #22272a;
+  min-height: 9%;
+}
+.header-content {
+  height: 100%;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5em .8em;
+  box-sizing: border-box;
+}
+#top-header h1 {
+  font-size: 1.5em;
+  margin: 0;
+  color: #22272a;
+}
+#top-header h1::before {
+  content: "# ";
+  color: #cc2a41;
+}
+.surf-filter {
+  text-align: right;
+}
+.surf-filter select {
+  height: 2.2em;
+  border-color: #22272a;
+  background-color: #f6f6f6;
+  border-width: 3px;
+  color: #22272a;
+  display: none;
+}
+.surf-filter button {
+  height: 2.2em;
+  border-color: #22272a;
+  background-color: #f6f6f6;
+  border-width: 3px;
+  color: #22272a;
+}
+.current-info {
+  padding-top: 5px;
+  color: #7c8577;
+}
+
+.view-container {
+  height: 330px;
+}
+.view-container iframe {
+  height: 100%;
+  width: 100%;
+  border: 0;
+}
+@media (max-width: 500px) {
+  #top-header h1 {
+    display: none;
+  }
+  .header-content {
+    justify-content: flex-end;
+  }
+}
+  </style>
+</head>
+<body>
+  <header id="top-header">
+    <div class="header-content">
+      <h1>友链页面</h1>
+      <div>
+        <div class="surf-filter" id="surf-filter">
+          <select id="type-select">
+            <option value="all">全部</option>
+          </select>
+          <button id="btn-start">开始拜访</button>
+        </div>
+        <div class="current-info">
+          <div>你敲了敲：<a target="_blank" id="url-display"></a> 的门，<a href="http://cactusmod.mantyke.icu/friendslink/">全部友链</a></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="view-container">
+    <iframe id="viewer"></iframe>
+  </div>
+
+  <script>
+let Data = {}
+let Rest = []
+let CurType = 'all'
+
+fetch('https://api.github.com/repos/你的ID/friend-link/issues/1')
+  .then(res => res.json())
+  .then(data =>
+    toObject(
+      data.body.replace(/`/g, '').replace(/\n/g, '')  
+  )
+  .then(data => {
+    init(data)
+  })
+
+function init (data) {
+  Data = data
+  update('all')
+  Object.keys(Data).forEach(t => {
+    const e = document.createElement('option')
+    e.value = t
+    e.innerText = Data[t].name
+    $typeSelect.append(e)
+  })
+}
+
+function toObject (str) {
+  return eval('(function (){ return ' + str + '})()')
+}
+
+const $iframe = document.getElementById('viewer')
+const $btnStart = document.getElementById('btn-start')
+const $urlDisplay = document.getElementById('url-display')
+const $typeSelect = document.getElementById('type-select')
+
+$typeSelect.onchange = function (e) {
+  update(e.target.value)
+}
+
+$btnStart.onclick = function () {
+  const url = fetchOne()
+  $iframe.src = url
+  $urlDisplay.innerText = url
+  $urlDisplay.href = url
+}
+
+function update (type) {
+  CurType = type
+  Rest = type === 'all'
+    ? Object.keys(Data).reduce((p, n) => p.concat(Data[n].items), [])
+    : Data[type].items.slice()
+}
+
+function fetchOne () {
+  if (!Rest.length) {
+    update(CurType)
+  }
+  const i = rand(Rest.length)
+  return Rest.splice(i, 1)
+}
+
+function rand (n) {
+  return Math.floor(Math.random() * n)
+}
+  </script>
+
+</body>
+</html>
+
+

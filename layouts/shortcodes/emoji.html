@@ -1,0 +1,8 @@
+{{ $name := .Get "name" }}
+<img
+    src="/img/emoji/{{ $name }}.{{ with .Get "ext" }}{{ . }}{{ else }}png{{ end }}"
+    title="{{ with .Get "title" }}{{ . }}{{ else }}{{ $name }}{{ end }}"
+    alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ $name }}{{ end }}"
+    width="{{ with .Get "width" }}{{ . }}{{ else }}24{{ end }}"
+    height="{{ with .Get "height" }}{{ . }}{{ else }}24{{ end }}"
+/>

@@ -1,0 +1,49 @@
+name: Github-Pages
+
+# 在 master 分支更新时触发构建
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    env:
+      TZ: Asia/Shanghai
+      SOURCE_REPO: ""  # 博客源码仓库
+      TARGET_REPO: ""  # 博客部署仓库
+      TARGET_BRANCH: "gh-pages"  # 博客部署的分支名
+      SECRET: ${{ secrets.PERSONAL_TOKEN }}
+    steps:
+      # 配置 git，避免一些莫名其妙的错误
+      - name: Git Configuration
+        run: |
+          git config --global core.quotePath false
+          git config --global core.autocrlf false
+          git config --global core.safecrlf true
+          git config --global core.ignorecase false
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      # 拉取源码
+      - name: Clone Repository
+        run:
+          git clone --branch=main --quiet https://$SECRET@github.com/$SOURCE_REPO site
+
+      # 安装 hugo (v0.88.1)
+      - name: Setup Hugo
+        run:
+          wget -q -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.88.1/hugo_extended_0.88.1_Linux-64bit.deb && sudo dpkg -i hugo.deb && hugo version
+
+      # 构建网站
+      - name: Build
+        run:
+          cd site && hugo --gc --minify --cleanDestinationDir
+
+      # 部署至 GitHub Pages
+      - name: Deploy
+        run: |
+          cd site/public && git init
+          git add .
+          git commit -m "Update Blog By GitHub Actions With Build ${GITHUB_RUN_NUMBER}"
+          git push --force --quiet "https://$SECRET@github.com/$TARGET_REPO" master:$TARGET_BRANCH

@@ -1,0 +1,14 @@
+{{ define "main" }}
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <!-- By SeekWind: Show Title of the article -->
+  <!-- <h1 id={{ .Title }}> {{ .Title }} </h1> -->
+<!-- TODO: gallery -->
+  <div class="content" itemprop="articleBody">
+  {{ if (eq .Type "search") }}
+    <!-- TODO: search https://gohugo.io/tools/search/ -->
+  {{ else }}
+    {{ .Content }}
+  {{ end }}
+  </div>
+</article>
+{{ end }}

@@ -1,0 +1,87 @@
+<head>
+{{ if not .Site.IsServer }}
+<script src='//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js'></script>
+<div id="waline" class="waline-container"></div>
+{{- end -}}
+</head>
+ <div id="waline"></div>
+  <script>
+    Waline({
+      el: '#waline',
+      serverURL: '',
+      emoji: [
+      'https://cdn.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs'],
+      avatar: 'monsterid',
+    });
+  </script>
+<style>
+   .waline-container {
+       background-color: var(--card-background);
+       border-radius: var(--card-border-radius);
+       box-shadow: var(--shadow-l1);
+       padding: 3%; /*缩小边距*/
+
+   }
+   .waline-container .vcount {
+       color: var(--card-text-color-main);
+   }
+
+   /*日间模式*/
+   :root{
+       --waline-theme-color: #34495e; /*主题色，提交按钮*/
+       --waline-active-color: #bababa; /*鼠标移到提交按钮上的颜色*/
+       --waline-badge-color: #34495e; /*博主徽章色*/
+       --waline-border-color:transparent;
+       --waline-avatar-size: 5rem;
+       --waline-dark-grey: #34495e; /*ID颜色*/
+
+         }
+
+    .v[data-class=v] .vcard .vhead .vnick {
+    position: relative;
+    display: inline-block;
+    margin-right: 0.8em;
+    font-weight: bold;
+    font-size: .875em;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.v[data-class=v] .vcards .vitem .vuser {
+    width: 2em;
+    height: 2em;}
+
+@media (max-width: 720px)
+.v[data-class=v] .vcards .vitem .vuser {
+    width: 2em;
+    height: 2em;
+}
+
+.v[data-class=v] .vcard .vquote .vuser {
+    width: 2em;
+    height: 2em;
+}
+
+.v[data-class=v] .vcontent .vemoji {
+    display: inline-block;
+    vertical-align: middle;
+    width: 2em;
+    margin: .25em;
+}
+
+.v[data-class=v] .vcard .vhead .vnick svg {
+    display: none;
+  }
+
+.v[data-class=v] .vcard .vhead .vbadge {
+    display: none;
+}
+     
+
+   }
+</style>
+
+
+</body>
+
+

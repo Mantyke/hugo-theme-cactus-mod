@@ -1,0 +1,38 @@
+{
+    "version": 3,
+    "sources": [
+        "cactus.js"
+    ],
+    "names": [
+        "initComments",
+        "config",
+        "JSON",
+        "parse",
+        "localStorage",
+        "getItem",
+        "node",
+        "document",
+        "querySelector",
+        "Elm",
+        "Main",
+        "init",
+        "flags",
+        "ports",
+        "storeSession",
+        "subscribe",
+        "s",
+        "setItem",
+        "currentScript",
+        "dataset",
+        "defaultHomeserverUrl",
+        "Object",
+        "assign",
+        "window"
+    ],
+    "mappings": ";;;AAmCA,aAnCA,IAmCA,EAAA,EAnCA,EAAA,QAAA,cAEA,SAASA,EAAaC,GAEpBA,EAAM,cAAoBC,KAAKC,MAAMC,aAAaC,QAAQ,mBAItDC,IAAAA,EAAOL,EAAM,YACVA,EAAM,KAGO,iBAATK,IACTA,EAAOC,SAASC,cAAcF,IAKtBG,EAAIC,IAAAA,KAAKC,KAAK,CACtBL,KAAMA,EACNM,MAAOX,IAILY,MAAMC,aAAaC,UAAU,SAAAC,GAAKZ,OAAAA,aAAaa,QAAQ,iBAAkBD,MAK3E,QAAAT,EAAAA,SAASW,qBAAT,IAAA,OAAA,EAAA,QAAA,EAAA,EAAwBC,eAAxB,IAAA,OAAA,EAAA,EAAiCC,uBACnCpB,EAAaqB,OAAOC,OAAO,CACzBhB,KAAMC,SAASW,eACdX,SAASW,cAAcC,UAG5BI,OAAOvB,aAAeA",
+    "file": "cactus.js",
+    "sourceRoot": "../src",
+    "sourcesContent": [
+        "import { Elm } from './Main.elm'\n\nfunction initComments(config) {\n  // get nullable session object from localstorage\n  config['storedSession'] = JSON.parse(localStorage.getItem(\"cactus-session\"));\n\n  // get node from the config\n  // remove it from config object before passing to elm\n  var node = config['node']\n  delete config['node']\n\n  // if node is string, use query selector to find dom node\n  if (typeof(node) == \"string\") {\n    node = document.querySelector(node);\n  }\n\n  // make a comments section in DOM element `node`\n  // initialize with provided config\n  var app = Elm.Main.init({\n    node: node,\n    flags: config\n  });\n\n  // subscribe to commands from localstorage port\n  app.ports.storeSession.subscribe(s => localStorage.setItem(\"cactus-session\", s));\n}\n\n// Allow specifying config using data-* attributes on the script tag\n// The script tag will be replaced by Cactus Comments box\nif (document.currentScript?.dataset?.defaultHomeserverUrl) {\n  initComments(Object.assign({\n    node: document.currentScript\n  }, document.currentScript.dataset));\n}\n\nwindow.initComments = initComments;\n"
+    ]
+}
