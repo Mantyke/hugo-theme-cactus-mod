@@ -12,14 +12,15 @@ slug: cactus-mod
 
 ---
 
-> {{< emoji name="artist"  ext="png" width="35" >}} 本文作者没有任何代码基础，所有说明性文字主要靠连蒙带猜兼灵光一现，参考时请务必注意，欢迎提出意见和给出建议~
+> {{< emoji name="artist"  ext="png" width="35" >}} 修改主题的时候没有想过公开，很多地方改得很乱，见笑——能用就行！
 
 
-Github仓库地址：[Mantyke](https://github.com/Mantyke)/[stack-theme-mod](https://github.com/Mantyke/Hugo-stack-theme-mod)
+Github仓库地址：[Mantyke/hugo-theme-cactus-mod
+](https://github.com/Mantyke/hugo-theme-cactus-mod)
 
-本主题由[CaiJimmy](https://github.com/CaiJimmy)制作并[发布](https://github.com/CaiJimmy/hugo-theme-stack)，这个仓库是由[Mantyke](https://mantyke.icu/)修改的魔改版本
+原主题为[hugo-theme-cactus](https://github.com/monkeyWzr/hugo-theme-cactus)，这个仓库是由[Mantyke](https://mantyke.icu/)修改的魔改版本
 
-预览：[Demo站](https://stack-theme-mod.vercel.app/)
+预览：[Demo站](https://cactus-mod.mantyke.icu/))
 
 <br>
 

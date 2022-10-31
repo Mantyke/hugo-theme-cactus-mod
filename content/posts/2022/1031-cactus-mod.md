@@ -12,14 +12,15 @@ slug: cactus-mod
 
 ---
 
-> {{< emoji name="artist"  ext="png" width="35" >}} 本文作者没有任何代码基础，所有说明性文字主要靠连蒙带猜兼灵光一现，参考时请务必注意，欢迎提出意见和给出建议~
+> {{< emoji name="artist"  ext="png" width="35" >}} 修改主题的时候没有想过公开，很多地方改得很乱，见笑——能用就行！
 
 
-Github仓库地址：[Mantyke](https://github.com/Mantyke)/[stack-theme-mod](https://github.com/Mantyke/Hugo-stack-theme-mod)
+Github仓库地址：[Mantyke/hugo-theme-cactus-mod
+](https://github.com/Mantyke/hugo-theme-cactus-mod)
 
-本主题由[CaiJimmy](https://github.com/CaiJimmy)制作并[发布](https://github.com/CaiJimmy/hugo-theme-stack)，这个仓库是由[Mantyke](https://mantyke.icu/)修改的魔改版本
+原主题为[hugo-theme-cactus](https://github.com/monkeyWzr/hugo-theme-cactus)，这个仓库是由[Mantyke](https://mantyke.icu/)修改的魔改版本
 
-预览：[Demo站](https://stack-theme-mod.vercel.app/)
+预览：[Demo站](https://cactus-mod.mantyke.icu/))
 
 <br>
 
@@ -35,12 +36,12 @@ Github仓库地址：[Mantyke](https://github.com/Mantyke)/[stack-theme-mod](htt
 ## 魔改内容
 1. 删除原仓库中部分代码，优化了在国内地区的访问速度。
 2. 修改菜单栏，可以将不同类型的文章分开放置（即Weekly/Other两个页面），并各自独立归档。
-3. About页面显示个人标签墙。 （by [Mengru](https://mengru.space/?posts/2022/07/——magic-toys#%E6%A0%87%E7%AD%BE%E5%A2%99)）
-4. 书影游墙，点击About页面-偶尔读书/有时电影/抽空游戏三个Tag打开。 （[同步workflow](https://imnerd.org/doumark.html) by怡红公子，[页面代码](https://immmmm.com/doumark-action/)by林木木，稍有修改）
-5. 随机访问友链。（by [Mengru](https://mengru.space/?posts/2022/07/magic-toys#%E5%86%B2%E6%B5%AA%E6%97%B6%E9%97%B4)）
-6. 内置Waline评论，需要自己配置serverURL。
-7. 新的首页页面布局。
-8. 根据个人喜好修改了一部分CSS。
+3. About页面显示个人标签墙 （by [Mengru](https://mengru.space/?posts/2022/07/——magic-toys#%E6%A0%87%E7%AD%BE%E5%A2%99)）
+4. 书影游墙，点击About页面-偶尔读书/有时电影/抽空游戏三个Tag打开 （[同步workflow](https://imnerd.org/doumark.html) by怡红公子，[页面代码](https://immmmm.com/doumark-action/)by林木木，稍有修改）
+5. 随机访问友链（by [Mengru](https://mengru.space/?posts/2022/07/magic-toys#%E5%86%B2%E6%B5%AA%E6%97%B6%E9%97%B4)）
+6. 内置Waline评论，需要自己配置serverURL
+7. 新的首页页面布局，并提供原主题首页布局供替换
+8. 根据个人喜好修改了一部分CSS
 
 
 
@@ -117,13 +118,14 @@ fetch('填入链接地址')
 根据[官方文档](https://waline.js.org/guide/get-started.html)配置完leancloud和Vercel后，打开`cactus_comments.html`，将域名填入`serverURL: '',`。  
 修改了一些css，配置了blobcat表情包，默认头像为`monsterid`。
 
-### 更换首页图片
+### 首页布局设置
 更换首页图片：`layouts/index.html`，修改图片链接：
 ```
 <div>
   <img id="feiyu" src="">
 </div>
 ```
+更换原主题首页布局：
 
 ### 设置博客头像
 
