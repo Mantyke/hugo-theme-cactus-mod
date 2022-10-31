@@ -46,6 +46,13 @@ Github仓库地址：[Mantyke/hugo-theme-cactus-mod
 
 
 ## 部分使用说明
+### 基础配置
+博客名称、描述等修改根目录下`config.toml`文件
+```
+title = "Hugo-Cactus-theme-mod" //引号内写博客名称
+description = "Hugo-cactus-mod by 塔塔" //引号内写描述内容，会出现在首页
+
+
 ### 配色修改
 mod默认使用主题中提供的classic配色方案，如需修改标题颜色/菜单栏颜色，修改`assets/scss/colors/classic.scss`文件中的`$color-accent-1: #000000;`一行。
 
@@ -73,7 +80,7 @@ weight = 3
 ```
 
 ### 标签墙
-标签墙修改：`/layouts/_default/tags-wall.html`，如果要给Tag带链接，链接中所有的`/`均需要写成`&#47;`，否则链接无法正常访问。同样地，不规定标签大小时（随机大小），也需要把中间的一个`/`写成`&#47;`
+标签墙修改：`/layouts/_default/tags-wall.html`，如果要给Tag带链接，链接中所有的`/`均需要写成`&#47;`，否则链接无法正常访问。同样地，不规定标签大小时（随机大小），也需要把中间的一个`/`写成`&#47;`  
 页面标题/路径修改：`content`文件夹下`tags-wall.md`
 
 另外注意：如果使用书影游墙，请一定记得替换相应Tag的网址。
@@ -114,8 +121,8 @@ fetch('填入链接地址')
 修改“全部友链”页面：`content/friendslink/index.md`
 
 ### 评论（使用Waline）
-相关配置位置：`layouts/partials/comments/cactus_comments.html`    
-根据[官方文档](https://waline.js.org/guide/get-started.html)配置完leancloud和Vercel后，打开`cactus_comments.html`，将域名填入`serverURL: '',`。  
+相关配置位置：`layouts/partials/comments/cactus_comments.html`      
+根据[官方文档](https://waline.js.org/guide/get-started.html)配置完leancloud和Vercel后，打开`cactus_comments.html`，将域名填入`serverURL: '',`。     
 修改了一些css，配置了blobcat表情包，默认头像为`monsterid`。
 
 ### 首页布局设置
