@@ -40,7 +40,7 @@ Github仓库地址：[Mantyke/hugo-theme-cactus-mod
 4. 书影游墙，点击About页面-偶尔读书/有时电影/抽空游戏三个Tag打开 （[同步workflow](https://imnerd.org/doumark.html) by怡红公子，[页面代码](https://immmmm.com/doumark-action/)by林木木，稍有修改）
 5. 随机访问友链（by [Mengru](https://mengru.space/?posts/2022/07/magic-toys#%E5%86%B2%E6%B5%AA%E6%97%B6%E9%97%B4)）
 6. 内置Waline评论，需要自己配置serverURL
-7. 新的首页页面布局，并提供原主题首页布局供替换
+7. 单图首页页面布局
 8. 根据个人喜好修改了一部分CSS
 
 
@@ -125,7 +125,6 @@ fetch('填入链接地址')
   <img id="feiyu" src="">
 </div>
 ```
-更换原主题首页布局：
 
 ### 设置博客头像
 
