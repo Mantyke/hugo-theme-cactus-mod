@@ -48,15 +48,17 @@ Github仓库地址：[Mantyke/hugo-theme-cactus-mod
 ## 部分使用说明
 ### 基础配置
 博客名称、描述等修改根目录下`config.toml`文件
+
 ```
 title = "Hugo-Cactus-theme-mod" //引号内写博客名称
 description = "Hugo-cactus-mod by 塔塔" //引号内写描述内容，会出现在首页
-
+```
 
 ### 配色修改
 mod默认使用主题中提供的classic配色方案，如需修改标题颜色/菜单栏颜色，修改`assets/scss/colors/classic.scss`文件中的`$color-accent-1: #000000;`一行。
 
 修改加粗字体颜色，修改`assets/scss/colors/classic.scss`文件中
+
 ```
 strong {
   font-weight: bold;
@@ -67,6 +69,7 @@ strong {
 新建文章命令：（以新建到Weekly页面为例）使用`hugo new weekly/2022/文章名称.md`，2022是年份名，用于在文件中整理文件，可以忽略。
 
 修改页面名称与路径：根目录下打开`config.toml`文件
+
 ```
 [[menu.main]]
 name = "Weekly"
@@ -95,6 +98,7 @@ weight = 3
 ### 随机友链
 
 使用方式：建立一个公开的Github Repo，在Repo中新建一个Issues，名字可以随意，填入以下内容后提交：
+
 ```
 {
 personal: {
@@ -107,6 +111,7 @@ items: [
 }
 ```
 复制链接，在前面加上`api.`，例如，复制下来的链接是`https://github.com/你的ID/friend-link/issues/1`，把它修改为`https://api.github.com/你的ID/friend-link/issues/1`，将修改后的链接写入`content/friends/index.html`中
+
 ```
 fetch('填入链接地址')
   .then(res => res.json())
@@ -127,6 +132,7 @@ fetch('填入链接地址')
 
 ### 首页布局设置
 更换首页图片：`layouts/index.html`，修改图片链接：
+
 ```
 <div>
   <img id="feiyu" src="">
