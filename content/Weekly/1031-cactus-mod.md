@@ -20,7 +20,7 @@ Github仓库地址：[Mantyke/hugo-theme-cactus-mod
 
 原主题为[hugo-theme-cactus](https://github.com/monkeyWzr/hugo-theme-cactus)，这个仓库是由[Mantyke](https://mantyke.icu/)修改的魔改版本
 
-预览：[Demo站](https://cactus-mod.mantyke.icu/))
+预览：[Demo站](https://cactus-mod.mantyke.icu/)
 
 <br>
 
