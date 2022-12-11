@@ -249,3 +249,15 @@ code {
 }
 
 
+body{zoom:1.45}
+
+@media screen and (max-width: 1700px) {
+#header-post {
+  display: none !important;
+  position: fixed;
+  top: 2rem;
+  right: 0;
+  display: inline-block;
+  float: right;
+  z-index: 100;
+}
