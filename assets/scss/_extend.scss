@@ -124,7 +124,13 @@ td {
   border-bottom: none;
 }
 
-body{zoom:1.5}
+@media screen and (min-width: 900px) {
+  body{zoom:1.5}
+  }
+  
+@media screen and (max-width: 900px) {
+  body{zoom:1}
+    }
 
 @media screen and (max-width: 1700px) {
 #header-post {
